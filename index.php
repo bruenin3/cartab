@@ -9,7 +9,7 @@
 <script src="http://malsup.github.com/jquery.form.js"></script> 
 <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="style.css">
-<body style="font-family: 'Montserrat', sans-serif; font-size: 13px; color: white;"><div id="container" align="center"><br>
+<body style="font-family: 'Montserrat', sans-serif; font-size: 13px; color: white;"><div id="container" align="center">
 <p id="header">cartab</p>
 <script type="text/javascript" charset="utf-8">
    function getLocation(){
@@ -24,20 +24,16 @@
         enableHighAccuracy: true 
       });
     }else{
-      console.log("Oops, no geolocation support");
+      console.log("No geolocation support");
     } 
       console.log("Exiting getLocation()");
     };
     function displayCurrentLocation(position){
-      console.log("Entering displayCurrentLocation");
       var latitude = position.coords.latitude;
     var longitude = position.coords.longitude;
-    console.log("Latitude " + latitude +" Longitude " + longitude);
     getAddressFromLatLang(latitude,longitude);
-      console.log("Exiting displayCurrentLocation");
     }
    function  displayError(error){
-    console.log("Entering ConsultantLocator.displayError()");
     var errorType = {
       0: "Unknown error",
       1: "Permission denied by user",
@@ -49,15 +45,11 @@
       errorMessage = errorMessage + "  " + error.message;
     }
     alert("Error Message " + errorMessage);
-    console.log("Exiting ConsultantLocator.displayError()");
   }
     function getAddressFromLatLang(lat,lng){
-      console.log("Entering getAddressFromLatLang()");
       var geocoder = new google.maps.Geocoder();
         var latLng = new google.maps.LatLng(lat, lng);
         geocoder.geocode( { 'latLng': latLng}, function(results, status) {
-        console.log("After getting address");
-        console.log(results);
         if (status == google.maps.GeocoderStatus.OK) {
           if (results[1]) {
             console.log(results[1]);
@@ -68,12 +60,11 @@
           alert("Geocode was not successful for the following reason: " + status);
         }
         });
-      console.log("Entering getAddressFromLatLang()");
     }
     </script>
   </head>
   <body>
-  
+
   <input type="button" class="Button" id="getLocation" onclick="getLocation()" value="find me"/>
     <form action="index.php" method="post" id="Address">
       <p>
