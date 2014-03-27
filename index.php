@@ -11,38 +11,8 @@
 </head>
 <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="style.css">
-<script type="text/javascript">		
-$.fn.spin = function(opts) {
-			this.each(function() {
-				var $this = $(this),
-					spinner = $this.data('spinner');
- 
-				if (spinner) spinner.stop();
-				if (opts !== false) {
-				  opts = $.extend({color: $this.css('color')}, opts);
-				  spinner = new Spinner(opts).spin(this);
-				  $this.data('spinner', spinner);
-				}
-			});
-			return this;
-		};
-		$(function() {
-	$(".Button").click(function(e) {
-				var opts = {
-				  lines: 12, 
-				  length: 7, 
-				  width: 5, 
-				  radius: 10, 
-				  color: '#fff', 
-				  speed: 1, 
-				  trail: 66,
-				  shadow: true 
-				};
-								$("#spin").show().spin(opts);
-});
-});
-</script>
-<body style="font-family: 'Montserrat', sans-serif; font-size: 13px; color: white;">
+<script type="text/javascript" src="spin.js"></script>
+<body>
 <div id="body">
 <div id="top">
   <div id="top"><p id="toploc">Current Location: San Francisco, CA</p></div><div id="spin" style="display:none;"></div><p id="header">cartab</p>
@@ -62,7 +32,11 @@ $.fn.spin = function(opts) {
 <div id="distance"></div> 
 <div id="distance2"></div> 
 <div id="distance3"></div>
-<script type='text/javascript' src="address.js"></script></div></div>
+<script type='text/javascript' src="address.js"></script>
+<div id="top">
+<p id="toploc">Get the source at <a href="http://github.com/tbarrettwilsdon/cartab">GitHub</a></p></div>
+</div>
+</div>
 </body> 
 <script type="text/javascript" src="analytics.js"></script>
 </html>
