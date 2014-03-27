@@ -22,6 +22,9 @@ posting.done(function( data ) {
    directionsService.route(request, function(response, status) {
       if (status == google.maps.DirectionsStatus.OK) {
 		  $("#map").show();
+var center = map.getCenter();
+google.maps.event.trigger(map, "resize");
+map.setCenter(center);
          document.getElementById('distance').innerHTML = 
            "UberX cost: $" + Math.round( (3+(response.routes[0].legs[0].distance.value*0.000621371*1.5)+(response.routes[0].legs[0].duration.value/60*.30)) *100 ) /100;
          document.getElementById('distance2').innerHTML = 
